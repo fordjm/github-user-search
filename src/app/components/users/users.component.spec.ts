@@ -12,7 +12,11 @@ describe('UsersComponent', () => {
   let fixture: ComponentFixture<UsersComponent>;
   let githubService: jasmine.SpyObj<GitHubService>;
   let searchUsersSpy: jasmine.Spy<() => Observable<SearchResult>>;
-  let searchResultDummy: {};
+  let searchResultDummy: SearchResult = {
+    total_count: 0,
+    incomplete_results: false,
+    items: []
+  };
 
   beforeEach(() => {
     githubService = jasmine.createSpyObj('GitHubService', ['searchUsers']);

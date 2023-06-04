@@ -1,0 +1,12 @@
+<div *ngIf="userDetail">
+  <h2>{{ userDetail.login | uppercase }}</h2>
+  <div>
+    <img width="200" height="200" src="{{userDetail.avatar_url}}">
+    <p>link: <a href="{{userDetail.html_url}}">{{userDetail.html_url}}</a></p>
+    <p>id: {{ userDetail.id }}</p>
+    <p for="userDetail-name">user name: {{ userDetail.login }}</p>
+    <p>followers: {{ userDetail.followers }}</p>
+    <p>description: {{ userDetail.bio || "none" }}</p>
+  </div>
+</div>
+<button type="button" (click)="goBack()">go back</button>

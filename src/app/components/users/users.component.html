@@ -1,0 +1,14 @@
+<p>Total Results: {{totalUsers}} | Pages: {{totalPages}} | Current Page: {{page}}</p>
+<ul class="users">
+  <li *ngFor="let user of users | paginate: { id: 'listing_pagination', currentPage: page, itemsPerPage: 10, totalItems: totalUsers }">
+      <a routerLink="/detail/{{user.login}}">
+          <span class="badge">{{user.type}}</span>
+          <span class="name">{{user.login}}</span>
+      </a>
+  </li>
+</ul>
+<pagination-controls
+  id='listing_pagination'
+  (pageChange)="pageChanged($event)"
+  (pageBoundsCorrection)="pageChanged($event)">
+</pagination-controls>
